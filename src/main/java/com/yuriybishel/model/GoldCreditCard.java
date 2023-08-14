@@ -59,13 +59,4 @@ public class GoldCreditCard extends CreditCard {
     public double getBonusPoints() {
         return bonusPoints;
     }
-    @Override
-    public String getAvailableFundsInfo() {
-        return super.getAvailableFundsInfo()
-                + ", Monthly spent: " + monthlySpent
-                + ", Potential cashback: " + potentialCashback
-                + ", Bonus points: " + bonusPoints
-                + ", Is Service Free: " + (freeMaintenance ? "Yes" : "No");
-    }
-
 }

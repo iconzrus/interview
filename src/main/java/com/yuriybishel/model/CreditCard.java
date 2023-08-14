@@ -28,6 +28,9 @@ public class CreditCard extends BankCard {
 
     @Override
     public void deposit(double amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Deposit amount cannot be negative.");
+        }
         if (creditUsed > 0) {
             double toRepay = Math.min(creditUsed, amount);
             creditUsed -= toRepay;
@@ -38,6 +41,9 @@ public class CreditCard extends BankCard {
 
     @Override
     public boolean pay(double amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Payment amount cannot be negative.");
+        }
         if (balance + (creditLimit - creditUsed) < amount) {
             throw new IllegalArgumentException("Not enough funds available.");
         }
@@ -58,14 +64,5 @@ public class CreditCard extends BankCard {
     @Override
     public String getAvailableFundsInfo() {
         return "Own funds: " + balance + ", Credit funds: " + (creditLimit - creditUsed);
-    }
-
-    @Override
-    public String toString() {
-        return "CreditCard{" +
-                "creditLimit=" + creditLimit +
-                ", creditUsed=" + creditUsed +
-                ", balance=" + balance +
-                '}';
     }
 }

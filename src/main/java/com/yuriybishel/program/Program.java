@@ -1,24 +1,47 @@
 package com.yuriybishel.program;
 
-import com.yuriybishel.model.BankCard;
-import com.yuriybishel.model.CreditCard;
-import com.yuriybishel.model.DebitCard;
-import com.yuriybishel.model.GoldCreditCard;
+import com.yuriybishel.model.*;
 
 public class Program {
     public static void main(String[] args) {
-        BankCard x = new DebitCard(20000);
-        x.pay(5000);
-        System.out.println(x);
-        x.deposit(15000);
-        System.out.println(x);
+        // Создание экземпляров классов
+        DebitCard debitCard = new DebitCard(5000);
+        CreditCard creditCard = new CreditCard(2000, 10000);
+        GoldCreditCard goldCreditCard = new GoldCreditCard(2000, 10000);
+        PremiumDebitCard premiumDebitCard = new PremiumDebitCard(7000);
 
+        // Проверка функций для DebitCard
+        System.out.println("=== DebitCard ===");
+        System.out.println(debitCard); // toString
+        debitCard.deposit(2000);
+        System.out.println("After deposit: " + debitCard.getBalance());
+        System.out.println("Pay 1000: " + debitCard.pay(1000));
+        System.out.println(debitCard.getAvailableFundsInfo());
 
-        BankCard z = new GoldCreditCard(500000, 100000);
-        z.pay(45000);
-        System.out.println(z);
-        z.pay(5000);
-        String availableFundsInfo = z.getAvailableFundsInfo();
-        System.out.println(availableFundsInfo);
+        System.out.println("\n=== CreditCard ===");
+        System.out.println(creditCard); // toString
+        creditCard.deposit(5000);
+        System.out.println("After deposit: " + creditCard.getBalance());
+        System.out.println("Pay 1000: " + creditCard.pay(1000));
+        System.out.println(creditCard.getAvailableFundsInfo());
+
+        System.out.println("\n=== GoldCreditCard ===");
+        System.out.println(goldCreditCard); // toString
+        goldCreditCard.deposit(100000);
+        System.out.println("After deposit: " + goldCreditCard.getBalance());
+        System.out.println("Pay 1000: " + goldCreditCard.pay(1000));
+        System.out.println(goldCreditCard.getAvailableFundsInfo());
+        System.out.println("Bonus points: " + goldCreditCard.getBonusPoints());
+        System.out.println("Potential cashback: " + goldCreditCard.getPotentialCashback());
+
+        System.out.println("\n=== PremiumDebitCard ===");
+        System.out.println(premiumDebitCard); // toString
+        premiumDebitCard.deposit(5000);
+        System.out.println("After deposit: " + premiumDebitCard.getBalance());
+        System.out.println("Pay 1000: " + premiumDebitCard.pay(1000));
+        System.out.println(premiumDebitCard.getAvailableFundsInfo());
+        System.out.println("Bonus points: " + premiumDebitCard.getBonusPoints());
+        System.out.println("Accumulation: " + premiumDebitCard.getAccumulation());
+        System.out.println(premiumDebitCard.getAvailableFundsInfo());
     }
-    }
+}

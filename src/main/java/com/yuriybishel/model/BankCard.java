@@ -6,6 +6,9 @@ public abstract class BankCard {
         this.balance = balance;
     }
     public void deposit(double amount) {
+        if (amount < 0) {
+            throw new IllegalArgumentException("Deposit amount cannot be negative.");
+        }
         this.balance += amount;
     }
 
@@ -20,7 +23,7 @@ public abstract class BankCard {
     @Override
     public String toString() {
         return getClass().getSimpleName() +
-                "balance=" + balance +
+                " balance=" + balance +
                 '}';
     }
 }
