@@ -16,14 +16,23 @@ public class PremiumDebitCard extends DebitCard {
 
     @Override
     public boolean pay(double amount) {
-        if (amount > 10000) {
-            amount *= 0.98; // Скидка 2% на все покупки свыше 10 000.
-        }
+        amount = applyDiscount(amount);
         if (super.pay(amount)) {
-            bonusPoints += amount * 0.01; // Бонусные баллы в размере 1% от покупок.
+            updateBonusPoints(amount);
             return true;
         }
         return false;
+    }
+
+    private double applyDiscount(double amount) {
+        if (amount > 10000) {
+            return amount * 0.98; // Скидка 2% на все покупки свыше 10 000.
+        }
+        return amount;
+    }
+
+    private void updateBonusPoints(double amount) {
+        bonusPoints += amount * 0.01; // Бонусные баллы в размере 1% от покупок.
     }
 
     public double getBonusPoints() {
