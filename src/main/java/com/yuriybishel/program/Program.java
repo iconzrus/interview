@@ -39,7 +39,6 @@ public class Program {
         premiumDebitCard.deposit(5000);
         System.out.println("After deposit: " + premiumDebitCard.getBalance());
         System.out.println("Pay 1000: " + premiumDebitCard.pay(1000));
-        System.out.println(premiumDebitCard.getAvailableFundsInfo());
         System.out.println("Bonus points: " + premiumDebitCard.getBonusPoints());
         System.out.println("Accumulation: " + premiumDebitCard.getAccumulation());
         System.out.println(premiumDebitCard.getAvailableFundsInfo());
