@@ -10,23 +10,23 @@ public class Program {
         GoldCreditCard goldCreditCard = new GoldCreditCard(2000, 10000);
         PremiumDebitCard premiumDebitCard = new PremiumDebitCard(7000);
 
-        // Проверка функций для DebitCard
+        //Проверка функций карт
         System.out.println("=== DebitCard ===");
-        System.out.println(debitCard); // toString
+        System.out.println(debitCard);
         debitCard.deposit(2000);
         System.out.println("After deposit: " + debitCard.getBalance());
         System.out.println("Pay 1000: " + debitCard.pay(1000));
         System.out.println(debitCard.getAvailableFundsInfo());
 
         System.out.println("\n=== CreditCard ===");
-        System.out.println(creditCard); // toString
+        System.out.println(creditCard);
         creditCard.deposit(5000);
         System.out.println("After deposit: " + creditCard.getBalance());
         System.out.println("Pay 1000: " + creditCard.pay(1000));
         System.out.println(creditCard.getAvailableFundsInfo());
 
         System.out.println("\n=== GoldCreditCard ===");
-        System.out.println(goldCreditCard); // toString
+        System.out.println(goldCreditCard);
         goldCreditCard.deposit(100000);
         System.out.println("After deposit: " + goldCreditCard.getBalance());
         System.out.println("Pay 1000: " + goldCreditCard.pay(1000));
@@ -35,7 +35,7 @@ public class Program {
         System.out.println("Potential cashback: " + goldCreditCard.getPotentialCashback());
 
         System.out.println("\n=== PremiumDebitCard ===");
-        System.out.println(premiumDebitCard); // toString
+        System.out.println(premiumDebitCard);
         premiumDebitCard.deposit(5000);
         System.out.println("After deposit: " + premiumDebitCard.getBalance());
         System.out.println("Pay 1000: " + premiumDebitCard.pay(1000));
